@@ -4,16 +4,21 @@ const game = {
   smallestNum: 1,
   secretNum: null,
   prevGuesses: [],
+  playerGuess: null,
   getGuess: function(){
-    console.log("Enter a guess between ${this.smallestNum} and ${this.biggestNum}")
-    let guess = 0;
-    while (guess < biggestNum && guess > smallestNum){
+    console.log(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`)
+    while (this.playerGuess < this.biggestNum && this.playerGuess > this.smallestNum && typeof this.playerGuess === "number"){
+      return this.playerGuess;
     }
-    return guess;
   },
   play: function() {
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
+
+      game.getGuess()
+      }
   }
-}
+
+console.log(game.play())
+
 
