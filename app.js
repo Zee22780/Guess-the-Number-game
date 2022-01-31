@@ -15,7 +15,7 @@ const game = {
     } while (this.prevGuesses[this.prevGuesses.length-1] !== this.secretNum)
   },
 
-  //Prompts player to guess and stores that value in playerGuess.
+  // getGuess function is called to prompt player to guess a number and stores that value in playerGuess.
   getGuess: function() {
     let playerGuess 
 
@@ -30,8 +30,12 @@ const game = {
 }
   render: function() {
     if(playerGuess === secretNum){
-      return "Congrats! You guessed the number in [number of prevGuesses]!"
+      alert("Congrats! You guessed the number in [ prevGuesses.length - 1] guesses!") 
     } else if (playerGuess > secretNum){
-      return "Too high! Previous guesses: x, x, x, x"
+      alert("Too high! Previous guesses: ${prevGuesses.join()}") 
+    } else if (playerGuess < secretNum){
+      alert("Too low! Previous guesses: ${prevGuesses.join()}") 
     }
   }
+
+  console.log(game.getGuess())
