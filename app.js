@@ -24,10 +24,8 @@ const game = {
       playerGuess = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`));
     }
     while (isNan(playerGuess) || playerGuess >this.biggestNum || playerGuess <this.smallestNum) 
-
     return playerGuess;
-  }
-}
+  },
   render: function() {
     if(playerGuess === secretNum){
       alert("Congrats! You guessed the number in [ prevGuesses.length - 1] guesses!") 
@@ -36,6 +34,5 @@ const game = {
     } else if (playerGuess < secretNum){
       alert("Too low! Previous guesses: ${prevGuesses.join()}") 
     }
-  }
+}
 
-  console.log(game.getGuess())
