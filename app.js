@@ -13,6 +13,7 @@ const game = {
     do {
       this.prevGuesses.push(this.getGuess());
     } while (this.prevGuesses[this.prevGuesses.length-1] !== this.secretNum)
+    this.render();
   },
 
   // getGuess function is called to prompt player to guess a number and stores that value in playerGuess.
@@ -23,16 +24,22 @@ const game = {
     do {
       playerGuess = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`));
     }
-    while (isNan(playerGuess) || playerGuess >this.biggestNum || playerGuess <this.smallestNum) 
+    while (isNaN(playerGuess) || playerGuess >this.biggestNum || playerGuess <this.smallestNum) 
     return playerGuess;
   },
+
   render: function() {
     if(playerGuess === secretNum){
-      alert("Congrats! You guessed the number in [ prevGuesses.length - 1] guesses!") 
+      alert("Congrats! You guessed the number in [prevGuesses.length - 1] guesses!") 
     } else if (playerGuess > secretNum){
       alert("Too high! Previous guesses: ${prevGuesses.join()}") 
-    } else if (playerGuess < secretNum){
+    } else {
       alert("Too low! Previous guesses: ${prevGuesses.join()}") 
     }
+  },
 }
+game.play()
+
+
+
 
