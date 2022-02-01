@@ -27,7 +27,7 @@ const game = {
     while (isNaN(playerGuess) || playerGuess >this.biggestNum || playerGuess <this.smallestNum);
     return playerGuess;
   },
-
+  //Render function provides feedback to player so that they know whether their guess is too low, high or if it matches the secretNum (computer generated number).
   render: function() {
     if(this.prevGuesses[this.prevGuesses.length -1] === this.secretNum){
       alert(`Congrats! You guessed the number in ${this.prevGuesses.length} guesses!`);
